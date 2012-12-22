@@ -1,0 +1,42 @@
+{
+  "name": "ejabberd",
+  "description": "node interface to ejabberd",
+  "version": "0.1.0",
+  "homepage": "https://github.com/kuno/ejabberd",
+  "author": {
+    "name": "wiredcraft",
+    "email": "info@wiredcraft.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kuno/ejabberd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kuno/ejabberd/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/kuno/ejabberd/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/ejabberd",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "ejs": "~0.8.3",
+    "sudo": "*",
+    "which": "~1.0.0",
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "grunt": "~0.3.17"
+  },
+  "keywords": []
+}
