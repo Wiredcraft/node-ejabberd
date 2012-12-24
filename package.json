@@ -31,7 +31,8 @@
     "ejs": "~0.8.3",
     "sudo": "*",
     "which": "~1.0.0",
-    "underscore": "*"
+    "underscore": "*",
+    "q": "~0.8.11"
   },
   "devDependencies": {
     "mocha": "*",
