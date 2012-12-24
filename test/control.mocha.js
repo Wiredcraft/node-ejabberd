@@ -1,4 +1,5 @@
 var Q = require('q');
+var path = require('path');
 var should = require('should');
 var control = require('../lib/control');
 
@@ -21,13 +22,14 @@ describe('ejabberdctl', function() {
                  });
   });
 
- // it('should resolved if config file is found', function(done) {
- //    var promise = control._loadConfig('ejabberdctl', './fixture/hosts.cfg');
+  it('should resolved if config file is found', function(done) {
+    var config = path.resolve(__dirname, 'fixture/hosts.cfg');
+    var promise = control._loadConfig('ejabberdctl', config);
 
- //    promise.then(function(stdout) { setTimeout(done, 0);},
- //                 function(reason) {
- //                   //setTimeout(done, 0);
- //                 });
- //  }); 
+    promise.then(function(stdout) { setTimeout(done, 0);},
+                 function(reason) {
+                   //setTimeout(done, 0);
+                 });
+  }); 
 
 });
