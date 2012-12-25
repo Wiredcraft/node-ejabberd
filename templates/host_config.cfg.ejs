@@ -1,6 +1,10 @@
-{host_config, "example.com", [{auth_method,   ldap},
-                              {ldap_servers,  ["localhost", "otherhost"]},
-                              {ldap_uids,     [{"uid"}]},
-                              {ldap_rootdn,   "dc=localdomain"},
-                              {ldap_rootdn,   "dc=example,dc=com"},
-                              {ldap_password, ""}]}.
+{host_config, "<%= host %>"
+%%                              ,[
+%%                                {auth_method,   ldap},
+%%                               ,{ldap_servers,  ["localhost", "otherhost"]},
+%%                               ,{ldap_uids,     [{"uid"}]},
+%%                               ,{ldap_rootdn,   "dc=localdomain"},
+%%                               ,{ldap_rootdn,   "dc=example,dc=com"},
+%%                               ,{ldap_password, ""}
+%%                              ]
+}.
