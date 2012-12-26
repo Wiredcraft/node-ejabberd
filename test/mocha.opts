@@ -1,5 +1,5 @@
 --require should
 --reporter spec
---timeout 5000
+--timeout 3000
 --slow 300
 --globals i

@@ -1,14 +1,12 @@
-# ejabberd
+# node-ejabberd
 
 node interface to ejabberd
 
+##Limitations
+`TODO`
+
 ## Getting Started
 Install the module with: `npm install ejabberd`
-
-```javascript
-var ejabberd = require('ejabberd');
-ejabberd.awesome(); // "awesome"
-```
 
 ## Documentation
 _(Coming soon)_
