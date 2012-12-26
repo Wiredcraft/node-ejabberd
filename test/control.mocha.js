@@ -3,7 +3,7 @@ var path = require('path');
 var should = require('should');
 var control = require('../lib/control');
 var helpers = require('./helpers');
-var exec = process.env.EJABBERDCTL_BIN
+var ctl = process.env.EJABBERDCTL_BIN
 var f = function() {};
 
 describe('ejabberdctl', function() {
@@ -31,7 +31,7 @@ describe('ejabberdctl', function() {
     var username = helpers.randomUsername();
     var password = helpers.randomPassword();
 
-    var promise = control.register(exec, username, host, password);
+    var promise = control.register(ctl, username, host, password);
 
     promise.then(function(stdout) { setTimeout(done, 0); });
   });
@@ -41,7 +41,7 @@ describe('ejabberdctl', function() {
     var username = helpers.randomUsername();
     var password = helpers.randomPassword();
 
-    var promise = control.register(exec, username, host, password);
+    var promise = control.unregister(ctl, username, host, password);
 
     promise.then(function(stdout) {
       var promise = control.unregister(exec, username, host);
@@ -55,7 +55,7 @@ describe('ejabberdctl', function() {
     var username = helpers.randomUsername();
     var password = helpers.randomPassword();
 
-    var promise = control.register(exec, username, host, password);
+    var promise = control.register(ctl, username, host);
 
     promise.then(function(stdout) {
       var newPass = helpers.randomPassword();
