@@ -20,12 +20,14 @@ On unix-like sytems, this means, you **must** have the `root` permission to use 
 |   |-- vhost1.cfg
 |   `-- vhost2.cfg
 ```
+
 ###Sample of vhosts.cfg
 ```erlang
 {host, ["vhost1.exmaple.com", "vhost2.example.com"]}.
 {include_config_file, "./includes/vhost1.cfg"}.
 {include_config_file, "./includes/vhost2.cfg"}.
 ```
+
 ###Sample of included vhost config file
 ```erlang
 {host_config, "vhost1.example.com",[{acl, admin, {user, "admin", "vhost1.example.com"}}]}.
