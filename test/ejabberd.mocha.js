@@ -14,14 +14,14 @@ describe('Ejabberd', function() {
   describe('instance', function() {
     var instance = new Ejabberd('/usr/local/etc/ejabberd/');
 
-    it('should has a addOrg method', function(done) {
-      instance.addOrg.should.be.a('function');
+    it('should has a addHost method', function(done) {
+      instance.addHost.should.be.a('function');
 
       setTimeout(done, 0);
     });  
 
-    it('should has a removeOrg method', function(done) {
-      instance.removeOrg.should.be.a('function');
+    it('should has a removeHost method', function(done) {
+      instance.removeHost.should.be.a('function');
 
       setTimeout(done, 0);
     });
