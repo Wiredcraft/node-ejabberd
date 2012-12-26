@@ -4,7 +4,7 @@ var Q = require('q');
 var should = require('should');
 var helpers = require('./helpers');
 var config = require('../lib/config');
-var exists = require('../lib/promise').exists;
+var io = require('../lib/io');
 
 //var ctl = process.env.EJABBERDCTL_BIN;
 //var cfgDir = process.evn.EJABBERD_CFG_DIR;
@@ -16,14 +16,14 @@ describe('Ejabberdctl', function() {
   describe('templates', function() {
     it('should has a hosts template', function(done) {
       var file = path.resolve(__dirname, '../templates/hosts.cfg.ejs');
-      var promise = exists(file);
+      var promise = io.exists(file);
 
       promise.then(function(exists) { setTimeout(done, 0); });
     });
 
     it('should has a host_config template', function(done) {
       var file = path.resolve(__dirname, '../templates/host_config.cfg.ejs');
-      var promise = exists(file);
+      var promise = io.exists(file);
 
       promise.then(function(exists) { setTimeout(done, 0); });
     });
