@@ -13,11 +13,11 @@ describe('ejabberdctl', function() {
     promise.then(f, function(reason) { setTimeout(done, 0); });
   });
 
-  // it('should success if ejabberdclt command is found', function(done) {
-  //   var promise = control.echo(exec);
+  it('should success if ejabberdclt command is found', function(done) {
+    var promise = control.echo(exec);
 
-  //   promise.then(function(stdout) { setTimeout(done, 0); });
-  // });
+    promise.then(function(stdout) { setTimeout(done, 0); });
+  });
 
 
   it('should failed if config file is not found', function(done) {
@@ -28,7 +28,7 @@ describe('ejabberdctl', function() {
 
   it('should can register user', function(done) {
     var host = 'localhost';
-    var username = helpers.randomUsername();
+    var username = 'test_admin';
     var password = helpers.randomPassword();
 
     var promise = control.register(ctl, username, host, password);
@@ -36,33 +36,23 @@ describe('ejabberdctl', function() {
     promise.then(function(stdout) { setTimeout(done, 0); });
   });
 
-  it('should can unregister user', function(done) {
-    var host = 'localhost';
-    var username = helpers.randomUsername();
-    var password = helpers.randomPassword();
-
-    var promise = control.unregister(ctl, username, host, password);
-
-    promise.then(function(stdout) {
-      var promise = control.unregister(exec, username, host);
-
-      promise.then(function(stdout) { setTimeout(done, 0); });
-    });
-  });
-
   it('should can change password', function(done) {
     var host = 'localhost';
-    var username = helpers.randomUsername();
-    var password = helpers.randomPassword();
+    var username = 'test_admin';
+    var newPass = helpers.randomPassword();
 
-    var promise = control.register(ctl, username, host);
+    var promise = control.changePassword(ctl, username, host, newPass);
 
-    promise.then(function(stdout) {
-      var newPass = helpers.randomPassword();
-      var promise = control.changePassword(exec, username, newPass);
-
-      promise.then(function(stdout) { setTimeout(done, 0); });
-    });
+    promise.then(function(stdout) { setTimeout(done, 0); });
   }); 
+
+  it('should can unregister user', function(done) {
+    var host = 'localhost';
+    var username = 'test_admin';
+
+    var promise = control.unregister(ctl, username, host);
+
+    promise.then(function(stdout) { setTimeout(done, 0); });
+  });
 
 });
