@@ -9,7 +9,7 @@ var helpers = require('./helpers');
 var ctl = process.env.EJABBERDCTL_BIN;
 var f = function() {};
 
-describe('ejabberdctl', function() {
+describe('Ejabberdctl', function() {
   describe('ctl', function() {
     it('should failed if ejabberdclt command is not found', function(done) {
       var promise = control.echo('no_ejabberdctl');
@@ -58,6 +58,38 @@ describe('ejabberdctl', function() {
       var promise = control.unregister(ctl, username, host);
 
       promise.then(function(stdout) { setTimeout(done, 0); });
+    });
+
+    it('should has getUsernames method', function(done) {
+      control.registeredUsers.should.be.a('function');
+
+      setTimeout(done, 0);
+    });
+
+    it('should can get usernames of a host', function(done) {
+      var host = 'localhost';
+
+      var promise = control.registeredUsers(ctl, host);
+
+      promise.then(function(names) {
+        names.should.be.a('array');
+
+        setTimeout(done, 0);
+      }, function(reason) {
+        setTimeout(done, 0);
+      });
+    });
+
+    it('should has a restart method', function(done) {
+      control.restart.should.be.a('function');
+
+      setTimeout(done, 0);
+    });
+
+    it('should has a reload method', function(done) {
+      control.reload.should.be.a('function');
+
+      setTimeout(done, 0);
     });
   });
 });
