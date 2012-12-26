@@ -32,7 +32,8 @@
     "sudo": "*",
     "which": "~1.0.0",
     "underscore": "*",
-    "q": "~0.8.11"
+    "q": "~0.8.11",
+    "winston": "~0.6.2"
   },
   "devDependencies": {
     "mocha": "*",
