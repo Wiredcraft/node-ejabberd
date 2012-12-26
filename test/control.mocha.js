@@ -21,7 +21,8 @@ describe('ejabberdctl', function() {
 
 
   it('should failed if config file is not found', function(done) {
-    var promise = control.loadConfig('ejabberdctl', './fixture/no.cfg');
+    var file = path.resolve(__dirname, './fixture/no.cfg');
+    var promise = control.loadConfig(ctl, file);
 
     promise.then(f, function(reason) { setTimeout(done, 0); });
   });
