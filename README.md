@@ -3,7 +3,11 @@
 node interface to ejabberd
 
 ##Limitations
-`TODO`
+Essentially, what this module can do is just talk to `ejabberdclt` command, edit `ejabberd.cfg` file.
+
+So if you don't have the permission to run `ejabberdclt` and to read/write in `/etc/ejabberd` config directoty, this module **wont** works for you.
+
+On unix-like sytems, this means, you **must** have the `root` permission to use this module or to run the application that required this moduel.
 
 ## Getting Started
 Install the module with: `npm install ejabberd`
