@@ -20,3 +20,4 @@ node_modules
 *sublime*
 
 demo/local.sh
+test/local.sh

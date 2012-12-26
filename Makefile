@@ -1,3 +1,3 @@
 test:
-	@NODE_ENV=test node_modules/.bin/mocha ./test/*.mocha.js
+	@NODE_ENV=test ./test/local.sh
 .PHONY: test
