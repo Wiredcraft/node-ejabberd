@@ -14,7 +14,7 @@ describe('ejabberdctl', function() {
   });
 
   it('should success if ejabberdclt command is found', function(done) {
-    var promise = control.echo(exec);
+    var promise = control.echo(ctl);
 
     promise.then(function(stdout) { setTimeout(done, 0); });
   });
