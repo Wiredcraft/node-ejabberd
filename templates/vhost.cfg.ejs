@@ -7,14 +7,13 @@
 %%                           ,{ldap_rootdn,   "dc=localdomain"},
 %%                           ,{ldap_rootdn,   "dc=example,dc=com"},
 %%                           ,{ldap_password, ""}
-{{add, modules}, [
-{mod_muc, [
-{host, "conference.@HOST@"},
-{access, all},
-{access_create, muc_admin},
-{access_persistent, all},
-{access_admin, muc_admin},
-]},
-]
-}]
-}.
+%%{{add, modules}, [
+%%{mod_muc, [
+%%{host, "conference.@HOST@"},
+%%{access, all},
+%%{access_create, muc_admin},
+%%{access_persistent, all},
+%%{access_admin, muc_admin},
+%%]},
+%%]}
+]}.
