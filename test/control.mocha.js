@@ -86,10 +86,6 @@ describe('Ejabberdctl', function() {
       setTimeout(done, 0);
     });
 
-    it('should has a reload method', function(done) {
-      control.reload.should.be.a('function');
-
-      setTimeout(done, 0);
-    });
   });
+
 });
