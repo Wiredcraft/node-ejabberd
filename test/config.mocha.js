@@ -63,6 +63,23 @@ describe('Ejabberdctl', function() {
       promise.then(function() { setTimeout(done, 0); });
     });
 
+    it('should has a updateHosts method', function(done) {
+      config.updateHosts.should.be.a('function');
+
+      setTimeout(done, 0);
+    });
+
+    it('should can update hosts file', function(done) {
+      var hosts = ['127.0.0.1', '127.0.0.2'];
+      var configs = ['/path/to/127.0.0.1', '/path/to/127.0.0.2'];
+      var cfgDir = path.resolve(__dirname, './fixture/ejabberd');
+      var fakeEjabberd = {cfgDir:cfgDir};
+
+      var promise = config.updateHosts(fakeEjabberd, hosts, configs);
+
+      promise.then(function() { setTimeout(done, 0); });
+    });
+
   });
 
 });
