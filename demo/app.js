@@ -9,11 +9,10 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
-var ejabberd = require('..');
-
 var app = express();
 
 app.configure(function(){
+  app.set('host', '192.168.33.16');
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'ejs');
@@ -31,6 +30,7 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.post('/create', routes.create);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
