@@ -12,7 +12,7 @@ describe('Ejabberd', function() {
   });
 
   describe('instance', function() {
-    var instance = new Ejabberd('/usr/local/etc/ejabberd/');
+    var instance = new Ejabberd();
 
     it('should has a addHost method', function(done) {
       instance.addHost.should.be.a('function');
