@@ -20,7 +20,7 @@ exports.create = function(req, res, next) {
   var config = {host: host};
 
   e.addVhost(host, config).then(function() {
-    res.send('Success', 200);
+    res.redirect('/admin');
   }, function(reason) {
     next(new Error.HTTP(reason, 500));
   });
