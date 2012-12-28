@@ -47,7 +47,8 @@ describe('Ejabberdctl', function() {
       var cfgDir = path.resolve(__dirname, './fixture/ejabberd');
       var fakeEjabberd = {cfgDir:cfgDir};   
       var fakeHosts = ['org1.example.com', 'org2.example.com'];
-      var promise = config.updateConfig(fakeEjabberd, fakeHosts);
+      var fakeIncludes = ['./includes/org.cfg', './includes/org2.cfg'];
+      var promise = config.updateConfig(fakeEjabberd, fakeHosts, fakeIncludes);
 
       promise.then(function() { setTimeout(done, 0); });
     });

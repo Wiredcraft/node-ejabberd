@@ -18,14 +18,14 @@ describe('Ejabberd', function() {
   describe('instance', function() {
     var instance = new Ejabberd(cfgDir);
 
-    it('should has a addHost method', function(done) {
-      instance.addHost.should.be.a('function');
+    it('should has a addVhost method', function(done) {
+      instance.addVhost.should.be.a('function');
 
       setTimeout(done, 0);
     });  
 
-    it('should has a removeHost method', function(done) {
-      instance.removeHost.should.be.a('function');
+    it('should has a removeVhost method', function(done) {
+      instance.removeVhost.should.be.a('function');
 
       setTimeout(done, 0);
     });
@@ -42,8 +42,8 @@ describe('Ejabberd', function() {
       setTimeout(done, 0);
     });  
 
-    it('should has a changePassword method', function(done) {
-      instance.changePassword.should.be.a('function');
+    it('should has a changeUserPassword method', function(done) {
+      instance.changeUserPassword.should.be.a('function');
 
       setTimeout(done, 0);
     });
