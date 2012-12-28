@@ -17,11 +17,11 @@ describe('Ejabberdctl', function() {
       promise.then(f, function(reason) { setTimeout(done, 0); });
     });
 
-    it('should success if ejabberdclt command is found', function(done) {
-      var promise = control.echo(ctl);
+    // it('should success if ejabberdclt command is found', function(done) {
+    //   var promise = control.echo(ctl);
 
-      promise.then(function(stdout) { setTimeout(done, 0); });
-    });
+    //   promise.then(function(stdout) { setTimeout(done, 0); });
+    // });
 
 
     it('should failed if config file is not found', function(done) {
@@ -66,19 +66,19 @@ describe('Ejabberdctl', function() {
       setTimeout(done, 0);
     });
 
-    it('should can get usernames of a host', function(done) {
-      var host = 'localhost';
+    // it('should can get usernames of a host', function(done) {
+    //   var host = 'localhost';
 
-      var promise = control.registeredUsers(ctl, host);
+    //   var promise = control.registeredUsers(ctl, host);
 
-      promise.then(function(names) {
-        names.should.be.a('array');
+    //   promise.then(function(names) {
+    //     names.should.be.a('array');
 
-        setTimeout(done, 0);
-      }, function(reason) {
-        setTimeout(done, 0);
-      });
-    });
+    //     setTimeout(done, 0);
+    //   }, function(reason) {
+    //     setTimeout(done, 0);
+    //   });
+    // });
 
     it('should has a restart method', function(done) {
       control.restart.should.be.a('function');
