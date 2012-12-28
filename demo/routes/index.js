@@ -20,10 +20,19 @@ exports.create = function(req, res, next) {
   var config = {host: host};
 
   e.addVhost(host, config).then(function() {
-    res.redirect('/admin');
+    res.redirect('/admin/' + host);
   }, function(reason) {
     next(new Error.HTTP(reason, 500));
   });
+};
+
+exports.admin = function(req,res) {
+  var host = req.params.host;
+
+  res.render('admin',
+             { host: host,
+               title: 'Register admin'}
+            );
 };
 
 exports.panel = function(req, res) {

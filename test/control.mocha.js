@@ -20,11 +20,11 @@ describe('Ejabberdctl', function() {
       promise.then(f, function(reason) { setTimeout(done, 0); });
     });
 
-    // it('should success if ejabberdclt command is found', function(done) {
-    //   var promise = control.echo(ctl);
+     it('should success if ejabberdclt command is found', function(done) {
+       var promise = control.help(ctl);
 
-    //   promise.then(function(stdout) { setTimeout(done, 0); });
-    // });
+       promise.then(function(stdout) { setTimeout(done, 0); });
+     });
 
 
     it('should failed if config file is not found', function(done) {
