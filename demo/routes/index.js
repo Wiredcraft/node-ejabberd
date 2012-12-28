@@ -20,10 +20,12 @@ exports.create = function(req, res, next) {
   var config = {host: host};
 
   e.addVhost(host, config).then(function() {
-    res.send('Success', 200);
-  }, function(reason) {
-    next(new Error.HTTP(reason, 500));
-  });
+    e.register(admin, host, password).then(function() {
+      res.send('Success', 200);
+    }, function(reason) {
+      next(new Error.HTTP(reason, 500));
+    });
+  })
 };
 
 exports.panel = function(req, res) {
