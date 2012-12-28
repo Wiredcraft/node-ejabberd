@@ -14,9 +14,11 @@ exports.create = function(req, res, next) {
   var org = req.body.org;
   var admin = req.body.admin;
   var password = req.body.password;
-  var config = {host: org + '.192.168.33.16'};
+  var host = req.get('host');
 
-  e.addHost(org, config).then(function() {
+  var config = {host: org + '.' + host};
+
+  e.addVhost(org, config).then(function() {
     res.send('Success', 200);
   }, function(reason) {
     next(new Error.HTTP(reason, 500));
