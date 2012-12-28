@@ -11,14 +11,15 @@ exports.index = function(req, res){
 };
 
 exports.create = function(req, res, next) {
+  var appHost = '192.168.33.16';
   var org = req.body.org;
   var admin = req.body.admin;
   var password = req.body.password;
-  var host = req.get('host');
+  var host = org + '.' + appHost;
 
-  var config = {host: org + '.' + host};
+  var config = {host: host};
 
-  e.addVhost(org, config).then(function() {
+  e.addVhost(host, config).then(function() {
     res.send('Success', 200);
   }, function(reason) {
     next(new Error.HTTP(reason, 500));
