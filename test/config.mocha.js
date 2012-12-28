@@ -14,6 +14,13 @@ var f = function() {};
 describe('Ejabberdctl', function() {
 
   describe('templates', function() {
+    it('should has s ejabberd.cfg template', function(done) {
+      var file = path.resolve(__dirname, '../templates/ejabberd.cfg.ejs');
+      var promise = io.exists(file);
+
+      promise.then(function(exists) { setTimeout(done, 0); });
+    });
+
     it('should has a vhosts template', function(done) {
       var file = path.resolve(__dirname, '../templates/vhosts.cfg.ejs');
       var promise = io.exists(file);
@@ -30,52 +37,67 @@ describe('Ejabberdctl', function() {
   });
 
   describe('config', function() {
-    it('should has a createHostConfig method', function(done) {
-      config.createHostConfig.should.be.a('function');
+    it('should has a updateConfig method', function(done) {
+      config.updateConfig.should.be.a('function');
 
       setTimeout(done, 0);
     });
 
-    it('should can create host config', function(done) {
+    it('should can update ejabberd config', function(done) {
+      var cfgDir = path.resolve(__dirname, './fixture/ejabberd');
+      var fakeEjabberd = {cfgDir:cfgDir};   
+      var fakeHosts = ['org1.example.com', 'org2.example.com'];
+      var promise = config.updateConfig(fakeEjabberd, fakeHosts);
+
+      promise.then(function() { setTimeout(done, 0); });
+    });
+
+    it('should has a createVhostConfig method', function(done) {
+      config.updateVhostConfig.should.be.a('function');
+
+      setTimeout(done, 0);
+    });
+
+    it('should can create/update vhost config', function(done) {
       var incDir = path.resolve(__dirname, './fixture/ejabberd/includes');
       var fakeEjabberd = {incDir:incDir};
       var host = 'test_host';
       var fakeConfig = {host:host};
 
-      var promise = config.createHostConfig(fakeEjabberd, host, fakeConfig);
+      var promise = config.updateVhostConfig(fakeEjabberd, host, fakeConfig);
 
       promise.then(function() { setTimeout(done, 0); });
     });
 
-    it('should has a removeHostConfig method', function(done) {
-      config.removeHostConfig.should.be.a('function');
+    it('should has a removeVhostConfig method', function(done) {
+      config.removeVhostConfig.should.be.a('function');
 
       setTimeout(done, 0);
     });
 
-    it('should can remove host config', function(done) {
+    it('should can remove vhost config', function(done) {
       var incDir = path.resolve(__dirname, './fixture/ejabberd/includes');
       var fakeEjabberd = {incDir:incDir};
       var host = 'test_host';
 
-      var promise = config.removeHostConfig(fakeEjabberd, host);
+      var promise = config.removeVhostConfig(fakeEjabberd, host);
 
       promise.then(function() { setTimeout(done, 0); });
     });
 
-    it('should has a updateHosts method', function(done) {
-      config.updateHosts.should.be.a('function');
+    it('should has a updateVhosts method', function(done) {
+      config.updateVhosts.should.be.a('function');
 
       setTimeout(done, 0);
     });
 
-    it('should can update hosts file', function(done) {
+    it('should can update vhosts file', function(done) {
       var hosts = ['127.0.0.1', '127.0.0.2'];
       var configs = ['/path/to/127.0.0.1', '/path/to/127.0.0.2'];
       var cfgDir = path.resolve(__dirname, './fixture/ejabberd');
       var fakeEjabberd = {cfgDir:cfgDir};
 
-      var promise = config.updateHosts(fakeEjabberd, hosts, configs);
+      var promise = config.updateVhosts(fakeEjabberd, hosts, configs);
 
       promise.then(function() { setTimeout(done, 0); });
     });

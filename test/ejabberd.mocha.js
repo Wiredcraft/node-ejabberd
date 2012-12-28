@@ -1,6 +1,10 @@
+var path = require('path');
+
 var Q = require('q');
 var should = require('should');
+
 var Ejabberd = require('../lib/ejabberd');
+var cfgDir = path.resolve(__dirname, './fixture/ejabberd');
 
 describe('Ejabberd', function() {
   describe('class', function() {
@@ -12,7 +16,7 @@ describe('Ejabberd', function() {
   });
 
   describe('instance', function() {
-    var instance = new Ejabberd();
+    var instance = new Ejabberd(cfgDir);
 
     it('should has a addHost method', function(done) {
       instance.addHost.should.be.a('function');
@@ -42,13 +46,12 @@ describe('Ejabberd', function() {
       instance.changePassword.should.be.a('function');
 
       setTimeout(done, 0);
-    });  
+    });
 
-    it('should has a reload method', function(done) {
-      instance.reload.should.be.a('function');
+    it('should has a restart method', function(done) {
+      instance.restart.should.be.a('function');
 
       setTimeout(done, 0);
-    });  
-
+    });
   });
 });
