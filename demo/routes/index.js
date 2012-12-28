@@ -11,7 +11,7 @@ exports.index = function(req, res){
 };
 
 exports.create = function(req, res, next) {
-  var appHost = '192.168.33.16';
+  var appHost = 'ejabberd.local';
   var org = req.body.org;
   var admin = req.body.admin;
   var password = req.body.password;
