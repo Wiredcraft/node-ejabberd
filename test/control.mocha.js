@@ -89,11 +89,11 @@ describe('Ejabberdctl', function() {
       setTimeout(done, 0);
     });
 
-    it('should can restart ejabberd server', function(done) {
-      var promise = control.restart(ctl);
+    // it('should can restart ejabberd server', function(done) {
+    //   var promise = control.restart(ctl);
 
-      promise.then(function() { setTimeout(done, 0); });
-    });
+    //   promise.then(function() { setTimeout(done, 0); });
+    // });
 
   });
 
