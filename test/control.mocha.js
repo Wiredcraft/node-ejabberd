@@ -11,6 +11,9 @@ var f = function() {};
 
 describe('Ejabberdctl', function() {
   describe('ctl', function() {
+    // .
+    var test_admin = helpers.randomUsername();
+
     it('should failed if ejabberdclt command is not found', function(done) {
       var promise = control.echo('no_ejabberdctl');
 
@@ -33,7 +36,7 @@ describe('Ejabberdctl', function() {
 
     it('should can register user', function(done) {
       var host = 'localhost';
-      var username = 'test_admin';
+      var username = test_admin;
       var password = helpers.randomPassword();
 
       var promise = control.register(ctl, username, host, password);
@@ -43,7 +46,7 @@ describe('Ejabberdctl', function() {
 
     it('should can change password', function(done) {
       var host = 'localhost';
-      var username = 'test_admin';
+      var username = test_admin;
       var newPass = helpers.randomPassword();
 
       var promise = control.changePassword(ctl, username, host, newPass);
@@ -53,7 +56,7 @@ describe('Ejabberdctl', function() {
 
     it('should can unregister user', function(done) {
       var host = 'localhost';
-      var username = 'test_admin';
+      var username = test_admin;
 
       var promise = control.unregister(ctl, username, host);
 
