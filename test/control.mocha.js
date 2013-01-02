@@ -15,7 +15,7 @@ describe('Ejabberdctl', function() {
     var test_admin = helpers.randomUsername();
 
     it('should failed if ejabberdclt command is not found', function(done) {
-      var promise = control.echo('no_ejabberdctl');
+      var promise = control.help('no_ejabberdctl');
 
       promise.then(f, function(reason) { setTimeout(done, 0); });
     });
