@@ -29,16 +29,16 @@
   },
   "dependencies": {
     "ejs": "~0.8.3",
-    "sudo": "*",
+    "sudo": "~1.0.3",
     "which": "~1.0.0",
-    "underscore": "*",
+    "underscore": "~1.4.3",
     "q": "~0.8.11",
     "winston": "~0.6.2",
     "process-monitor": "git://github.com/Wiredcraft/process-monitor.git"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*",
+    "mocha": "~1.7.4",
+    "should": "~1.2.1",
     "grunt": "~0.3.17",
     "express": "~3.0.5"
   },
