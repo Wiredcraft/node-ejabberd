@@ -7,6 +7,8 @@ var control = require('../lib/control');
 var helpers = require('./helpers');
 
 var ctl = process.env.EJABBERDCTL_BIN;
+var ejabberd = {ctl: ctl};
+
 var f = function() {};
 
 describe('Ejabberdctl', function() {
@@ -15,21 +17,21 @@ describe('Ejabberdctl', function() {
     var test_admin = helpers.randomUsername();
 
     it('should failed if ejabberdclt command is not found', function(done) {
-      var promise = control.ping('no_ejabberdctl');
+      var promise = control.ping({ctl: 'no_ejabberdctl'});
 
       promise.then(f, function(reason) { setTimeout(done, 0); });
     });
 
-     it('should success if ejabberdclt command is found', function(done) {
-       var promise = control.ping(ctl);
+    it('should success if ejabberdclt command is found', function(done) {
+      var promise = control.ping(ejabberd);
 
-       promise.then(function(stdout) { setTimeout(done, 0); });
-     });
+      promise.then(function(stdout) { setTimeout(done, 0); });
+    });
 
 
     it('should failed if config file is not found', function(done) {
       var file = path.resolve(__dirname, './fixture/no.cfg');
-      var promise = control.loadConfig(ctl, file);
+      var promise = control.loadConfig(ejabberd, file);
 
       promise.then(f, function(reason) { setTimeout(done, 0); });
     });
@@ -39,7 +41,7 @@ describe('Ejabberdctl', function() {
       var username = test_admin;
       var password = helpers.randomPassword();
 
-      var promise = control.register(ctl, username, host, password);
+      var promise = control.register(ejabberd, username, host, password);
 
       promise.then(function(stdout) { setTimeout(done, 0); });
     });
@@ -49,7 +51,7 @@ describe('Ejabberdctl', function() {
       var username = test_admin;
       var newPass = helpers.randomPassword();
 
-      var promise = control.changePassword(ctl, username, host, newPass);
+      var promise = control.changePassword(ejabberd, username, host, newPass);
 
       promise.then(function(stdout) { setTimeout(done, 0); });
     }); 
@@ -58,7 +60,7 @@ describe('Ejabberdctl', function() {
       var host = 'localhost';
       var username = test_admin;
 
-      var promise = control.unregister(ctl, username, host);
+      var promise = control.unregister(ejabberd, username, host);
 
       promise.then(function(stdout) { setTimeout(done, 0); });
     });
