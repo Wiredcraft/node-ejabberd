@@ -94,7 +94,9 @@ p2.then(  // This is also a promise
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/gruntjs/grunt).
 
 ## Release History
-_(Nothing yet)_
+* 2013/1/03: 0.1.0
+  
+  Initial release
 
 ## License
 Copyright (c) 2012 wiredcraft  
