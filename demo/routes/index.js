@@ -35,8 +35,16 @@ exports.admin = function(req,res) {
             );
 };
 
-exports.panel = function(req, res) {
-};
-
 exports.register = function(req, res) {
+  var host = req.params.host;
+  var admin = req.body.admin;
+  var password = req.body.password;
+
+  e.register(admin, host, password).then(
+    function() {
+    res.send('register ok'):
+  },
+  function() {
+    res.send('register failed');
+  });
 }
