@@ -9,23 +9,22 @@ So if you don't have the permission to run `ejabberdclt` and to read/write in `/
 
 On unix-like sytems, this means, you **must** have the `root` permission to use this module or to run the application that required this moduel.
 
+__In the simple words, you are fully reponsed to make sure this module can tale to ejabberd.__
+
+### Passed tests on those OSes
+
+* ubuntu 12.04
+
+
 ## Directory and files
 
 ###Config directory structure
 ```
 .
 |-- ejabberd.cfg
-|-- vhosts.cfg
 |-- includes
 |   |-- vhost1.cfg
 |   `-- vhost2.cfg
-```
-
-###Sample of vhosts.cfg
-```erlang
-{host, ["vhost1.exmaple.com", "vhost2.example.com"]}.
-{include_config_file, "./includes/vhost1.cfg"}.
-{include_config_file, "./includes/vhost2.cfg"}.
 ```
 
 ###Sample of included vhost config file
@@ -37,10 +36,59 @@ On unix-like sytems, this means, you **must** have the `root` permission to use 
 Install the module with: `npm install ejabberd`
 
 ## Documentation
-_(Coming soon)_
+
+### Before use this module, You need those knowledge.
+* __Promise based API__
+
+    Any value return from a public api is a `promise` object.
+
+    More precie, it is follow the [Promise/A+](http://promises-aplus.github.com/promises-spec/) specification,
+      and implemented in a nodejs module called [Q](https://github.com/kriskowal/q).
+
+   I highly recommened to read the speicification and documents of aboves, if you are new to promise.
+
+* __Basic knowledge about `ejabberd` and its configuration is also required__
+
+###API
+
+See [API](https://github.com/Wiredcraft/node-ejabberd/wiki/API)
+
 
 ## Examples
-_(Coming soon)_
+```js
+var Ejabberd = require('ejabberd');
+var e = new Ejabberd('/etc/ejabberd/');
+
+var host = 'chat.example.com';
+var config = {host: host};
+
+// Add a virtual host to ejabberd's configuration then restart server
+var p1 = e.addVhost(host, config);
+
+p1.then(  // This return a promise
+  // success
+  function() {
+  },
+  // error
+  function(err) {
+  }
+);
+
+var username = 'Lorem';
+var password = 'secret';
+
+// Register a new use
+var p2 = e.register(username, host, password);
+
+p2.then(  // This is also a promise
+  // success
+  function() {
+  },
+  // error
+  function(err) {
+  }
+);
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/gruntjs/grunt).
