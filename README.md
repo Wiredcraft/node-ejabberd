@@ -1,6 +1,6 @@
 # node-ejabberd
 
-node interface to ejabberd
+nodejs bridge to ejabberd
 
 ##Limitations
 Essentially, what this module can do is just talk to `ejabberdclt` command, edit `ejabberd.cfg` file.

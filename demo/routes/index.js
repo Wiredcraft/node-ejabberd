@@ -42,7 +42,7 @@ exports.register = function(req, res) {
 
   e.register(admin, host, password).then(
     function() {
-    res.send('register ok');
+    res.send('register ok, Now you can use your jid and password login');
   },
   function() {
     res.send('register failed');
