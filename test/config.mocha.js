@@ -45,10 +45,11 @@ describe('Ejabberdctl', function() {
 
     it('should can update ejabberd config', function(done) {
       var cfgDir = path.resolve(__dirname, './fixture/ejabberd');
-      var fakeEjabberd = {cfgDir:cfgDir};   
-      var fakeHosts = ['org1.example.com', 'org2.example.com'];
-      var fakeIncludes = ['./includes/org.cfg', './includes/org2.cfg'];
-      var promise = config.updateConfig(fakeEjabberd, fakeHosts, fakeIncludes);
+      var fakeEjabberd = {cfgDir: cfgDir, db: {}};   
+      fakeEjabberd.db['hosts'] = ['org1.example.com', 'org2.example.com'];
+      fakeEjabberd.db['configs'] = ['./includes/org.cfg', './includes/org2.cfg'];
+
+      var promise = config.updateConfig(fakeEjabberd);
 
       promise.then(function() { setTimeout(done, 0); });
     });
