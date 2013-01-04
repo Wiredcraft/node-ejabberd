@@ -55,34 +55,26 @@ module.exports = {
   restart: function(ejabberd) {
     //var cmd = ejabberd.ctl + ' restart';
     var cmd = '/etc/init.d/ejabberd restart';
-    var promise;
 
     logger.debug('Promise to run: ' + cmd);
 
-    var restart = child.exec(cmd);
+    var promise = child.exec(cmd);
 
-    var wait = restart.then(function(stdout) {
-      var start = Date.now();
-
-      while (Date.now() - start < 1000) {};
-
-      if (ejabberd.running) {
-
-        var msg = 'Ejabberd seems not shutdown properly';
-
-        console.error(msg);
-
-        throw new Error(msg);
-
-      } else {
-
-        while (Date.now() - start < ejabberd.restartWait) {};
-
-        return ejabberd;
-      }
+    var shutdown = ejabberd.ping().then(function() {
+      throw new Error('Ejabberd seems not shutdown properly');
     });
 
-    promise = wait;
+    var wait = down.then(function() {
+      var start = Date.now();
+
+      while (Date.now() - start < ejabberd.restartWait) {};
+
+      return ejabberd;
+    });
+
+    [shutdown, wait].forEach(function(f) {
+      promise = promise.then(f);
+    });
 
     return promise;
   },
