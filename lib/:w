@@ -117,7 +117,6 @@ Ejabberd.prototype.addVhost = function(host, vCfg) {
   ejabberd.db['hosts'].push(host);
   ejabberd.db['configs'].push(incPath);
 
-  // Steps
   var updateConfig = function() {
     return config.updateConfig(ejabberd);
   }
@@ -129,10 +128,10 @@ Ejabberd.prototype.addVhost = function(host, vCfg) {
   }
 
   var steps = [updateConfig, restart];
-   
+
   var promise = config.updateVhostConfig(ejabberd, host, vCfg);
 
-  steps.forEach(function (f) {
+  funcs.forEach(function (f) {
     promise = promise.then(f);
   });
 
