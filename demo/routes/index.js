@@ -21,7 +21,7 @@ exports.create = function(req, res, next) {
 
   e.addVhost(host, config).then(function() {
     res.redirect('/admin/' + host);
-  }, function(reason) {
+  }).fai(function(reason) {
     next(new Error.HTTP(reason, 500));
   });
 };
