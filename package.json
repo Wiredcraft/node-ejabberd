@@ -20,7 +20,7 @@
     "url": "https://github.com/wiredcraft/ejabberd/blob/master/LICENSE-MIT"
   }
   ],
-  "main": "lib/ejabberd",
+  "main": "./index.js",
   "engines": {
     "node": ">=0.8.0"
   },
