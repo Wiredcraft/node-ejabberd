@@ -101,6 +101,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 * 2013/01/04: 0.1.2
   1, enhance restart by force at 'sleep' time.
 
+* 2013/01/07: 0.1.3
+  1, Dose exist when encaurage error.
+
 ## License
 Copyright (c) 2012 wiredcraft  
 Licensed under the MIT license.
