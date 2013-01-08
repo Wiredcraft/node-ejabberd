@@ -58,7 +58,7 @@
 {acl, admin, {user, "admin", "localhost"}}.
 
 %% Hostname
-{hosts, ["localhost", "127.0.0.1"<% hosts.forEach(function(host, index){ %>, "<%= host %>"<% if (index < hosts.length - 1) { %><% } %><% }) %>]}.
+{hosts, ["localhost", "127.0.0.1"<% hosts.forEach(function(host, index){ %>, "<%= host %>"]}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
