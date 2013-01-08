@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    
-    <form method="post" action="/register/<%= host %>">
-      <h5>Create a admin</h5>
-      <input type="text" name="admin" placeholder="admin" />
-      <input type="text" name="password" placeholder="password" />
-      <input type="submit" value="Submit" />
-    </form>
-  </body>
+<head>
+<title><%= title %></title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+
+<form method="post" action="/register/<%= host %>">
+  <h5>Register user</h5>
+  <input type="text" name="username" placeholder="username" />
+  <input type="text" name="password" placeholder="password" />
+  <input type="submit" value="Submit" />
+</form>
+
+<form method="post" action="/unregister/<%= host %>">
+  <h5>Unregister user</h5>
+  <input type="text" name="username" placeholder="username" />
+  <input type="submit" value="Submit" />
+</form>
+
+<form method="post" action="/change/<%= host %>">
+  <h5>Change user password</h5>
+  <input type="text" name="username" placeholder="username" />
+  <input type="text" name="newPass" placeholder="newPass" />
+  <input type="submit" value="Submit" />
+</form>  
+</body>
 </html>
