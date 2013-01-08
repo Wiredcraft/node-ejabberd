@@ -34,7 +34,8 @@
     "underscore": "~1.4.3",
     "q": "~0.8.11",
     "winston": "~0.6.2",
-    "process-monitor": "git://github.com/Wiredcraft/process-monitor.git"
+    "fs-extra": "~0.3.2"
+
   },
   "devDependencies": {
     "mocha": "~1.7.4",
