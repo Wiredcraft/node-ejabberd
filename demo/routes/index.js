@@ -71,7 +71,7 @@ exports.change= function(req, res) {
 
   e.changePassword(username, host, newPass).then(
     function() {
-    var msg = 'ok, user ' + username + ' password is ' + newPass + 'now';
+    var msg = 'ok, user ' + username + ' password is ' + newPass + ' now';
 
     res.send(msg);
   },
