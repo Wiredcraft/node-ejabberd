@@ -94,18 +94,22 @@ p2.then(  // This is also a promise
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/gruntjs/grunt).
 
 ## Release History
-* 2013/01/03: 0.1.0
+* 2013/01/03: **0.1.0**
   
   Initial release
 
-* 2013/01/04: 0.1.2
+* 2013/01/04: **0.1.2**
+
   1, enhance restart by force at 'sleep' time.
 
-* 2013/01/07: 0.1.3
+* 2013/01/07: **0.1.3**
+
   1, Dose exist when encaurage error.
 
-  2013/01/08/: 0.1.4
+* 2013/01/08/: **0.1.4**
+
   1, allow re-add host
+
   2, make log optional
 
 ## License
