@@ -30,11 +30,8 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.post('/create', routes.createVhost);
-app.post('/remove', routes.removeVhost);
-app.get('/admin/:host', routes.admin);
-app.post('/register/:host', routes.register);
-app.post('/unregister/:host', routes.unregister);
+app.post('/create', routes.create);
+app.post('/remove', routes.remove)
 app.get('/admin/:host', routes.admin);
 app.post('/register/:host', routes.register);
 app.post('/unregister/:host', routes.unregister);

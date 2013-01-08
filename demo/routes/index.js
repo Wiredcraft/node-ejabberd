@@ -19,7 +19,8 @@ exports.admin = function(req,res) {
             );
 };
 
-exports.createVhost = function(req, res, next) {
+ 
+exports.create = function(req, res, next) {
   var appHost = 'ejabberd.local';
   var org = req.body.org;
   var host = org + '.' + appHost;
@@ -33,8 +34,7 @@ exports.createVhost = function(req, res, next) {
   });
 };
 
- 
-exports.removeVhost = function(req, res) {
+exports.remove = function(req, res) {
   var host = req.params.host;
 
   e.removeVhost(host).then(
@@ -45,6 +45,22 @@ exports.removeVhost = function(req, res) {
   },
   function() {
     res.send('remove failed');
+  });
+};
+
+exports.register = function(req, res) {
+  var host = req.params.host;
+  var username = req.body.username;
+  var password = req.body.password;
+
+  e.register(username, host, password).then(
+    function() {
+    var msg = 'register ok, Now you can use your jid and password login server ';
+
+    res.send(msg);
+  },
+  function() {
+    res.send('register failed');
   });
 };
 
