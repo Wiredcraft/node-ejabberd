@@ -10,6 +10,15 @@ exports.index = function(req, res){
   res.render('index', { title: 'Github Chat' });
 };
 
+exports.admin = function(req,res) {
+  var host = req.params.host;
+
+  res.render('admin',
+             { host: host,
+               title: 'Register admin'}
+            );
+};
+
 exports.create = function(req, res, next) {
   var appHost = 'ejabberd.local';
   var org = req.body.org;
@@ -24,28 +33,18 @@ exports.create = function(req, res, next) {
   });
 };
 
-exports.admin = function(req,res) {
+
+exports.remove = function(req, res) {
   var host = req.params.host;
 
-  res.render('admin',
-             { host: host,
-               title: 'Register admin'}
-            );
-};
-
-exports.register = function(req, res) {
-  var host = req.params.host;
-  var username = req.body.username;
-  var password = req.body.password;
-
-  e.register(username, host, password).then(
+  e.removeVhost(host).then(
     function() {
-    var msg = 'register ok, Now you can use your jid and password login server ';
+    var msg = 'Host ' + host + ' has bee removed';
 
     res.send(msg);
   },
   function() {
-    res.send('register failed');
+    res.send('remove failed');
   });
 };
 

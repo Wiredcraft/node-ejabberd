@@ -7,6 +7,9 @@
 <body>
 <h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
+<form method="post" action="/remove/<%= host %>">
+  <h5>Remove host</h5>
+</form>
 
 <form method="post" action="/register/<%= host %>">
   <h5>Register user</h5>
