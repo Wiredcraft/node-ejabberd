@@ -98,19 +98,29 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
   
   Initial release
 
+
 * 2013/01/04: **0.1.2**
 
   1, enhance restart by force at 'sleep' time.
 
+
 * 2013/01/07: **0.1.3**
 
   1, Dose exist when encaurage error.
+
 
 * 2013/01/08/: **0.1.4**
 
   1, allow re-add host
 
   2, make log optional
+
+
+* 2013/01/08/: **0.1.5**
+
+  1, more demo
+
+  2, fixed removeVhost
 
 ## License
 Copyright (c) 2012 wiredcraft  
