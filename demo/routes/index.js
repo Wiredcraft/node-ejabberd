@@ -19,7 +19,7 @@ exports.admin = function(req,res) {
             );
 };
 
-exports.create = function(req, res, next) {
+exports.createVhost = function(req, res, next) {
   var appHost = 'ejabberd.local';
   var org = req.body.org;
   var host = org + '.' + appHost;
@@ -33,8 +33,8 @@ exports.create = function(req, res, next) {
   });
 };
 
-
-exports.remove = function(req, res) {
+ 
+exports.removeVhost = function(req, res) {
   var host = req.params.host;
 
   e.removeVhost(host).then(
