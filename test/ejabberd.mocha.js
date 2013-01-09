@@ -26,9 +26,9 @@ describe('Ejabberd', function() {
     });
 
     it('should fail it addVhost missing arguments', function(done) {
-      var promise = instance.addVhost();
+      var promise = instance.addVhost('blah');
 
-      promise.then(f).fail(function() { setTimeout(done, 0); });
+      promise.then(f).fail(function(error) { console.log(error); setTimeout(done, 0); });
     });
 
     it('should has a removeVhost method', function(done) {
