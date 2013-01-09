@@ -109,18 +109,24 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
   1, Dose exist when encaurage error.
 
 
-* 2013/01/08/: **0.1.4**
+* 2013/01/08: **0.1.4**
 
   1, allow re-add host
 
   2, make log optional
 
 
-* 2013/01/08/: **0.1.5**
+* 2013/01/08: **0.1.5**
 
   1, more demo
 
   2, fixed removeVhost
+
+
+* 2013/01/09: **0.1.6**
+
+  1, add arguments checker for public api methods
+
 
 ## License
 Copyright (c) 2012 wiredcraft  
