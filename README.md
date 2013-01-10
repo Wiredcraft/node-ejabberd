@@ -128,6 +128,13 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
   1, add arguments checker for public api methods
 
 
+* 2013/01/10: **0.1.7**
+
+  1, clean up
+
+  2, sleep function
+
+
 ## License
 Copyright (c) 2012 wiredcraft  
 Licensed under the MIT license.
