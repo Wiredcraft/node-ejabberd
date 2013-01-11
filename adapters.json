@@ -1,0 +1,17 @@
+{
+  "osx:brew": {
+    "cfgDir": "/usr/local/etc/ejabberd/",
+    "dbDir": "/usr/local/var/lib/ejabberd",
+    "script": null,
+    "ctl": "/usr/local/sbin/ejabberdctl",   
+    "restart": "/usr/local/sbin/ejabberdctl restart"   
+  },
+  "ubuntu:all": {
+    "cfgDir": "/etc/ejabberd/",
+    "dbDir": "/var/lib/ejabberd",
+    "pidFile": "/var/run/ejabberd/ejabberd.pid",
+    "ctl": "/usr/sbin/ejabberdctl",
+    "script": "/etc/init.d/ejabberd",
+    "restart": "/etc/init.d/ejabberd restart"
+  }
+}
