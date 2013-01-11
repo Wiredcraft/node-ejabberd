@@ -5,6 +5,7 @@ var should = require('should');
 
 var Ejabberd = require('../lib/ejabberd');
 var cfgDir = path.resolve(__dirname, './fixture/ejabberd');
+var dist = 'osx';
 var f = function() {};
 
 describe('Ejabberd', function() {
@@ -17,7 +18,7 @@ describe('Ejabberd', function() {
   });
 
   describe('instance', function() {
-    var instance = new Ejabberd(cfgDir);
+    var instance = new Ejabberd(dist, {distOpt: 'brew'});
 
     it('should has a addVhost method', function(done) {
       instance.addVhost.should.be.a('function');
