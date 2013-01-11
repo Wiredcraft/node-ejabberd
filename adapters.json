@@ -7,7 +7,7 @@
     "daemon": "/etc/local/usr/sbin/ejabberd",
     "restart": "/usr/local/usr/sbin/ejabberdctl restart"
   },
-  "ubuntu:all": {
+  "ubuntu:apt": {
     "cfgDir": "/etc/ejabberd/",
     "dbDir": "/var/lib/ejabberd",
     "pidFile": "/var/run/ejabberd/ejabberd.pid",

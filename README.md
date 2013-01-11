@@ -32,7 +32,13 @@ An adaper is simpely a bunch of info about the ejabberd setups on an OS that def
   ...
 ```
 
-**Explanation**
+### Explanation
+
+#### name
+
+The name of the adapter object should follow `os name`:`The name of package manager`, e.g: `ubuntu:apt`, `osx:brew`
+
+#### member
 
 * `cfgDir`: The absolute path of ejabberd config directory.
 
