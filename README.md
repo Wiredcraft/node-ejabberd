@@ -95,7 +95,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 * 2013/01/03: **0.1.0**
-  
+
   Initial release
 
 
@@ -136,5 +136,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 ## License
-Copyright (c) 2012 wiredcraft  
+Copyright (c) 2012 wiredcraft
 Licensed under the MIT license.
