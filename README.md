@@ -3,6 +3,7 @@
 nodejs bridge to ejabberd
 
 ##Limitations
+
 Essentially, what this module can do is just talk to `ejabberdclt` command, edit `ejabberd.cfg` file.
 
 So if you don't have the permission to run `ejabberdclt` and to read/write in `/etc/ejabberd` config directoty, this module **wont** works for you.
@@ -11,10 +12,45 @@ On unix-like sytems, this means, you **must** have the `root` permission to use 
 
 __In the simple words, you are fully reponsed to make sure this module can tale to ejabberd.__
 
-### Passed tests on those OSes
+###Adpaters
 
-* ubuntu 12.04
+Since node-ejabberd is highly depending on the os setup, in order to make it working properly with different OSes, here comes the concept of `adaper`.
 
+An adaper is simpely a bunch of info about the ejabberd setups on an OS that defined in [adapers.json](./adapers.json), like:
+
+```
+ ...
+ "ubuntu:all": {
+    "cfgDir"  : "/etc/ejabberd/",
+    "dbDir"   : "/var/lib/ejabberd",
+    "pidFile" : "/var/run/ejabberd/ejabberd.pid",
+    "ctl"     : "/usr/sbin/ejabberdctl",
+    "daemon"  : "/usr/sbin/ejabberd",
+    "script"  : "/etc/init.d/ejabberd",
+    "restart" : "/etc/init.d/ejabberd restart"
+  }
+  ...
+```
+
+**Explanation**
+
+* `cfgDir`: The absolute path of ejabberd config directory.
+
+* `dbDir`: The absolute path of ejbberd database directory.
+
+* `pidFile`: The absolute path of ejabberd process id file.
+
+* `ctl`: The absolute path of ejabberdctl binary.
+
+* `daemon`: The absolute path of ejabberd daemon binary.
+
+* `script`: The os level daemon script, **optional**.
+
+* `restart`: The full ejabberd restart command.
+
+**Fork please**
+
+If you found that there are not adaper fro your favorite os, please fork this repo, adding it, then fire a pull request.
 
 ## Directory and files
 
@@ -57,7 +93,7 @@ See [API](https://github.com/Wiredcraft/node-ejabberd/wiki/API)
 ## Examples
 ```js
 var Ejabberd = require('ejabberd');
-var e = new Ejabberd('/etc/ejabberd/');
+var e = new Ejabberd('ubuntu:all');
 
 var host = 'chat.example.com';
 var config = {host: host};
