@@ -74,6 +74,12 @@ describe('Ejabberd', function() {
       setTimeout(done, 0);
     });
 
+    it('should has a changePasswords method', function(done) {
+      instance.changePasswords.should.be.a('function');
+
+      setTimeout(done, 0);
+    }); 
+
     it('should fail it changePassword missing arguments', function(done) {
       var promise = instance.changePassword();
 
