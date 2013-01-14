@@ -36,7 +36,7 @@ An adaper is simpely a bunch of info about the ejabberd setups on an OS that def
 
 #### name
 
-The name of the adapter object should follow `os name`:`The name of package manager`, e.g: `ubuntu:apt`, `osx:brew`
+The name of the adapter object should follow `os-name`:`The-name-of-package-manager`, e.g: `ubuntu:apt`, `osx:brew`
 
 #### member
 
