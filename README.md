@@ -20,7 +20,7 @@ An adaper is simpely a bunch of info about the ejabberd setups on an OS that def
 
 ```
  ...
- "ubuntu:all": {
+ "ubuntu:apt": {
     "cfgDir"  : "/etc/ejabberd/",
     "dbDir"   : "/var/lib/ejabberd",
     "pidFile" : "/var/run/ejabberd/ejabberd.pid",
