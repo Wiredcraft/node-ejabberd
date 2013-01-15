@@ -95,4 +95,19 @@ exports.change= function(req, res) {
   function() {
     res.send('change password failed');
   });
-}; 
+};
+
+exports.changePassword = function(req, res) {
+  var username = req.body.username;
+  var newPass = req.body.newPass;
+
+  e.changePasswords(username, e.db['hosts'], newPass).then(
+    function() {
+    var msg = 'ok, user ' + username + ' password is ' + newPass + ' now';
+
+    res.send(msg);
+  },
+  function() {
+    res.send('change password failed');
+  });
+};  
