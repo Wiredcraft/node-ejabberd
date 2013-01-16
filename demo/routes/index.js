@@ -97,7 +97,7 @@ exports.change= function(req, res) {
   });
 };
 
-exports.changePassword = function(req, res) {
+exports.modify = function(req, res) {
   var username = req.body.username;
   var newPass = req.body.newPass;
 
