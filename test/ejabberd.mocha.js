@@ -20,6 +20,12 @@ describe('Ejabberd', function() {
   describe('instance', function() {
     var instance = new Ejabberd(dist);
 
+    it('should has a version property', function(done) {
+      instance.version.should.be.a('string');
+
+      setTimeout(done, 0);
+    });
+
     it('should has a addVhost method', function(done) {
       instance.addVhost.should.be.a('function');
 

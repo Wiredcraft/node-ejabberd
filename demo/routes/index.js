@@ -16,7 +16,7 @@ exports.admin = function(req,res) {
   res.render('admin',
              { host: host,
                title: 'Admin panel',
-               message: 'Welcome to admin manager panel'
+               message: 'Welcome to admin panel'
              }
             );
 };
