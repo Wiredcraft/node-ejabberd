@@ -21,7 +21,7 @@ exports.admin = function(req,res) {
             );
 };
 
- 
+
 exports.create = function(req, res, next) {
   var appHost = 'ejabberd.local';
   var org = req.body.org;
@@ -101,7 +101,7 @@ exports.modify = function(req, res) {
   var username = req.body.username;
   var newPass = req.body.newPass;
 
-  e.changePasswords(username, e.db['hosts'], newPass).then(
+  e.changeAllPasswords(username, e.db['hosts'], newPass).then(
     function() {
     var msg = 'ok, user ' + username + ' password is ' + newPass + ' now';
 

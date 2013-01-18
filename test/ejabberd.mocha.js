@@ -74,8 +74,8 @@ describe('Ejabberd', function() {
       setTimeout(done, 0);
     });
 
-    it('should has a changePasswords method', function(done) {
-      instance.changePasswords.should.be.a('function');
+    it('should has a changeAllPasswords method', function(done) {
+      instance.changeAllPasswords.should.be.a('function');
 
       setTimeout(done, 0);
     }); 
