@@ -99,7 +99,7 @@ See [API](https://github.com/Wiredcraft/node-ejabberd/wiki/API)
 ## Examples
 ```js
 var Ejabberd = require('ejabberd');
-var e = new Ejabberd('ubuntu:all');
+var e = new Ejabberd('ubuntu:apt');
 
 var host = 'chat.example.com';
 var config = {host: host};
@@ -175,6 +175,15 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
   1, clean up
 
   2, sleep function
+
+
+* 2013/01/18: **0.2.0**
+
+  1, add adpaters
+
+  2, add changeAllPasswords method
+
+  3, refactory restart function
 
 
 ## License
