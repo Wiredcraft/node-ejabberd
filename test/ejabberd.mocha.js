@@ -5,6 +5,7 @@ var should = require('should');
 
 var Ejabberd = require('../lib/ejabberd');
 var cfgDir = path.resolve(__dirname, './fixture/ejabberd');
+var dist = process.env.EJABBERD_DIST;
 var f = function() {};
 
 describe('Ejabberd', function() {
@@ -17,7 +18,13 @@ describe('Ejabberd', function() {
   });
 
   describe('instance', function() {
-    var instance = new Ejabberd(cfgDir);
+    var instance = new Ejabberd(dist);
+
+    it('should has a version property', function(done) {
+      instance.version.should.be.a('string');
+
+      setTimeout(done, 0);
+    });
 
     it('should has a addVhost method', function(done) {
       instance.addVhost.should.be.a('function');
@@ -72,6 +79,12 @@ describe('Ejabberd', function() {
 
       setTimeout(done, 0);
     });
+
+    it('should has a changeAllPasswords method', function(done) {
+      instance.changeAllPasswords.should.be.a('function');
+
+      setTimeout(done, 0);
+    }); 
 
     it('should fail it changePassword missing arguments', function(done) {
       var promise = instance.changePassword();

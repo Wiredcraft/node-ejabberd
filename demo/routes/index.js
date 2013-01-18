@@ -16,12 +16,12 @@ exports.admin = function(req,res) {
   res.render('admin',
              { host: host,
                title: 'Admin panel',
-               message: 'Welcome to admin manager panel'
+               message: 'Welcome to admin panel'
              }
             );
 };
 
- 
+
 exports.create = function(req, res, next) {
   var appHost = 'ejabberd.local';
   var org = req.body.org;
@@ -95,4 +95,19 @@ exports.change= function(req, res) {
   function() {
     res.send('change password failed');
   });
-}; 
+};
+
+exports.modify = function(req, res) {
+  var username = req.body.username;
+  var newPass = req.body.newPass;
+
+  e.changeAllPasswords(username, e.db['hosts'], newPass).then(
+    function() {
+    var msg = 'ok, user ' + username + ' password is ' + newPass + ' now';
+
+    res.send(msg);
+  },
+  function() {
+    res.send('change password failed');
+  });
+};  
