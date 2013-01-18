@@ -3,6 +3,7 @@
 # Declare environment varialbes
 export EJABBERDCTL_BIN=/path/to/ejabberdctl
 export EJABBERD_CFG_DIR=/path/to/etc/ejabberd
+export EJABBERD_DIST=os:pm
 
 # Do NOT run this script directly, instead use Makefile
 #exec ./node_modules/.bin/mocha ./test/*.mocha.js
