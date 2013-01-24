@@ -34,6 +34,7 @@ app.post('/create', routes.create);
 app.post('/remove/:host', routes.remove)
 app.get('/admin/:host', routes.admin);
 app.post('/register/:host', routes.register);
+app.post('/remove/:host', routes.remove);
 app.post('/unregister/:host', routes.unregister);
 app.post('/change/:host', routes.change);
 app.post('/modify', routes.modify);
