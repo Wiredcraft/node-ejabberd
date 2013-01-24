@@ -68,6 +68,12 @@ describe('Ejabberd', function() {
       setTimeout(done, 0);
     });
 
+    it('should has a removeUsers method', function(done) {
+      instance.removeUsers.should.be.a('function');
+
+      setTimeout(done, 0);
+    }); 
+
     it('should fail it unregister missing arguments', function(done) {
       var promise = instance.unregister();
 
