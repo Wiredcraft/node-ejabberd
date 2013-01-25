@@ -33,6 +33,7 @@ app.get('/users', user.list);
 app.post('/create', routes.create);
 app.post('/remove/:host', routes.remove)
 app.get('/admin/:host', routes.admin);
+app.post('/add/:host', routes.add);
 app.post('/register/:host', routes.register);
 app.post('/remove/:host', routes.remove);
 app.post('/unregister/:host', routes.unregister);

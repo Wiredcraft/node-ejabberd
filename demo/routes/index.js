@@ -66,6 +66,26 @@ exports.register = function(req, res) {
   });
 };
 
+exports.add = function(req, res) {
+  var host = req.params.host;
+  var username1 = req.body.username1;
+  var password1 = req.body.password1;
+  var username2 = req.body.username2;
+  var password2 = req.body.password2;
+
+  var users = [{name:username1, password:password1},{name:username2, password:password2}]
+
+  e.addUsers(users, host).then(
+    function() {
+    var msg = 'register ok, Now you can use your jid and password login server ';
+
+    res.send(msg);
+  },
+  function() {
+    res.send('register failed');
+  });
+};
+   
 exports.unregister = function(req, res) {
   var host = req.params.host;
   var username = req.body.username;

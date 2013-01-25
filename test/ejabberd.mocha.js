@@ -56,6 +56,12 @@ describe('Ejabberd', function() {
       setTimeout(done, 0);
     });
 
+    it('should has a addUsers method', function(done) {
+      instance.addUsers.should.be.a('function');
+
+      setTimeout(done, 0);
+    });
+
     it('should fail it register missing arguments', function(done) {
       var promise = instance.register();
 
@@ -72,7 +78,7 @@ describe('Ejabberd', function() {
       instance.removeUsers.should.be.a('function');
 
       setTimeout(done, 0);
-    }); 
+    });
 
     it('should fail it unregister missing arguments', function(done) {
       var promise = instance.unregister();
@@ -90,7 +96,7 @@ describe('Ejabberd', function() {
       instance.changeAllPasswords.should.be.a('function');
 
       setTimeout(done, 0);
-    }); 
+    });
 
     it('should fail it changePassword missing arguments', function(done) {
       var promise = instance.changePassword();

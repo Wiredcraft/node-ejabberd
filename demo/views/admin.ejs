@@ -20,6 +20,15 @@
   <input type="submit" value="Submit" />
 </form>
 
+<form method="post" action="/add/<%= host %>">
+  <h5>Add users</h5>
+  <input type="text" name="username1" placeholder="username1" />
+  <input type="text" name="password1" placeholder="password1" />
+  <input type="text" name="username2" placeholder="username2" />
+  <input type="text" name="password2" placeholder="password2" />  
+  <input type="submit" value="Submit" />
+</form>
+   
 <form method="post" action="/unregister/<%= host %>">
   <h5>Unregister user</h5>
   <input type="text" name="username" placeholder="username" />
