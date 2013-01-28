@@ -99,37 +99,46 @@ See [API](https://github.com/Wiredcraft/node-ejabberd/wiki/API)
 ## Examples
 ```js
 var Ejabberd = require('ejabberd');
-var e = new Ejabberd('ubuntu:apt');
+var e = new Ejabberd('ubuntu:apt', {
+    checkerInterval : 1000
+});
 
-var host = 'chat.example.com';
+// Lvh redirect to 127.0.0.1
+var host = 'example.lvh.me';
 var config = {host: host};
 
-// Add a virtual host to ejabberd's configuration then restart server
-var p1 = e.addVhost(host, config);
+function test_ejabber() {
+    // Add a virtual host to ejabberd's configuration then restart server
+    var p1 = e.addVhost(host, config);
 
-p1.then(  // This return a promise
-  // success
-  function() {
-  },
-  // error
-  function(err) {
-  }
-);
+    p1.then(  // This return a promise
+    // success
+    function() {
+    },
+    // error
+    function(err) {
+    }
+    );
 
-var username = 'Lorem';
-var password = 'secret';
+    var username = 'Lorem';
+    var password = 'secret';
 
-// Register a new use
-var p2 = e.register(username, host, password);
+    // Register a new use
+    var p2 = e.register(username, host, password);
 
-p2.then(  // This is also a promise
-  // success
-  function() {
-  },
-  // error
-  function(err) {
-  }
-);
+    p2.then(  // This is also a promise
+    // success
+    function() {
+    },
+    // error
+    function(err) {
+    }
+    );
+}
+
+e.once('status', function(status) {
+    test_ejabber();
+});
 ```
 
 ## Contributing
