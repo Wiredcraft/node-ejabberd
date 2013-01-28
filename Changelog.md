@@ -52,3 +52,8 @@
 * 2013/01/24: **0.2.1**
 
   1, add new method, removeUsers
+
+
+* 2013/01/28: **0.2.2**
+
+  1, Spwan child process dramatically reduce errors.       
