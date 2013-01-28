@@ -99,11 +99,15 @@ See [API](https://github.com/Wiredcraft/node-ejabberd/wiki/API)
 ## Examples
 ```js
 var Ejabberd = require('ejabberd');
-var e = new Ejabberd('ubuntu:apt');
+var e = new Ejabberd('ubuntu:apt', {
+    checkerInterval : 1000
+});
 
-var host = 'chat.example.com';
+// Lvh redirect to 127.0.0.1
+var host = 'example.lvh.me';
 var config = {host: host};
 
+function test_ejabber() {
 // Add a virtual host to ejabberd's configuration then restart server
 var p1 = e.addVhost(host, config);
 
@@ -130,6 +134,12 @@ p2.then(  // This is also a promise
   function(err) {
   }
 );
+}
+
+e.once('status', function(status) {
+test_ejabber();
+});
+
 ```
 
 ## Contributing
