@@ -4,7 +4,7 @@
  */
 
 var Ejabberd = require('../..');
-var e = new Ejabberd();
+var e = new Ejabberd(null, {debug:true});
 
 exports.index = function(req, res){
   res.render('index', { title: 'Github Chat' });
