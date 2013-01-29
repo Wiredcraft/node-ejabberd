@@ -1,4 +1,0 @@
-{hosts, [<% hosts.forEach(function(host, index){ %>"<%= host %>"<% if (index < hosts.length - 1) { %>,<% } %><% }) %>]}.
-<% configs.forEach(function(path, index) { %>
-{include_config_file, "<%= path %>"}.
-<% }); %>
