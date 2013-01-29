@@ -54,7 +54,7 @@ describe('Ejabberdctl', function() {
       var promise = control.changePassword(ejabberd, username, host, newPass);
 
       promise.then(function(stdout) { setTimeout(done, 0); });
-    }); 
+    });
 
     it('should can unregister user', function(done) {
       var host = 'localhost';

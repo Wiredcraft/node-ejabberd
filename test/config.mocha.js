@@ -52,7 +52,7 @@ describe('Ejabberdctl', function() {
 
     it('should can update ejabberd config', function(done) {
       var cfgDir = path.resolve(__dirname, './fixture/ejabberd');
-      var fakeEjabberd = {cfgDir: cfgDir, db: {}, cfgTempl:cfgTempl, vhostsTempl: vhostsTempl, vhostConfigTempl: vhostConfigTempl};   
+      var fakeEjabberd = {cfgDir: cfgDir, db: {}, cfgTempl:cfgTempl, vhostsTempl: vhostsTempl, vhostConfigTempl: vhostConfigTempl};
       fakeEjabberd.db['hosts'] = ['org1.example.com', 'org2.example.com'];
       fakeEjabberd.db['configs'] = ['./includes/org.cfg', './includes/org2.cfg'];
 
@@ -69,7 +69,7 @@ describe('Ejabberdctl', function() {
 
     it('should can create/update vhost config', function(done) {
       var incDir = path.resolve(__dirname, './fixture/ejabberd/includes');
-      var fakeEjabberd = {cfgDir: cfgDir, db: {}, cfgTempl:cfgTempl, vhostsTempl: vhostsTempl, vhostConfigTempl: vhostConfigTempl};   
+      var fakeEjabberd = {cfgDir: cfgDir, db: {}, cfgTempl:cfgTempl, vhostsTempl: vhostsTempl, vhostConfigTempl: vhostConfigTempl};
       var host = 'test_host';
       var fakeConfig = {host:host};
 
@@ -86,7 +86,7 @@ describe('Ejabberdctl', function() {
 
     it('should can remove vhost config', function(done) {
       var incDir = path.resolve(__dirname, './fixture/ejabberd/includes');
-      var fakeEjabberd = {cfgDir: cfgDir, db: {}, cfgTempl:cfgTempl, vhostsTempl: vhostsTempl, vhostConfigTempl: vhostConfigTempl};   
+      var fakeEjabberd = {cfgDir: cfgDir, db: {}, cfgTempl:cfgTempl, vhostsTempl: vhostsTempl, vhostConfigTempl: vhostConfigTempl};
       var host = 'test_host';
 
       var promise = config.removeVhostConfig(fakeEjabberd, host);
@@ -104,7 +104,7 @@ describe('Ejabberdctl', function() {
       var hosts = ['127.0.0.1', '127.0.0.2'];
       var configs = ['/path/to/127.0.0.1', '/path/to/127.0.0.2'];
       var cfgDir = path.resolve(__dirname, './fixture/ejabberd');
-      var fakeEjabberd = {cfgDir: cfgDir, db: {}, cfgTempl:cfgTempl, vhostsTempl: vhostsTempl, vhostConfigTempl: vhostConfigTempl};   
+      var fakeEjabberd = {cfgDir: cfgDir, db: {}, cfgTempl:cfgTempl, vhostsTempl: vhostsTempl, vhostConfigTempl: vhostConfigTempl};
 
       var promise = config.updateVhosts(fakeEjabberd, hosts, configs);
 
