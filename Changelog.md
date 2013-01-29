@@ -56,4 +56,11 @@
 
 * 2013/01/28: **0.2.2**
 
-  1, Spwan child process dramatically reduce errors.       
+  1, Spwan child process dramatically reduce errors.
+
+
+* 2013/01/29: **0.2.3**
+
+  1, Spwan child process when restrt.
+
+  2, disable stop time.
