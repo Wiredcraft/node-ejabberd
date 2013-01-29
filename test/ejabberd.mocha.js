@@ -18,7 +18,7 @@ describe('Ejabberd', function() {
   });
 
   describe('instance', function() {
-    var instance = new Ejabberd(dist);
+    var instance = new Ejabberd(dist, {debug:true});
 
     it('should has a version property', function(done) {
       instance.version.should.be.a('string');

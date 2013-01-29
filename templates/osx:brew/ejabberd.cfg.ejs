@@ -88,7 +88,7 @@
 %% You can define one or several, for example:
 %% {hosts, ["example.net", "example.com", "example.org"]}.
 %%
-{hosts, ["localhost", "127.0.0.1", "org1.example.com", "org2.example.com"]}.
+{hosts, ["localhost", "127.0.0.1"<% hosts.forEach(function(host, index){ %>, "<%= host %>"<% if (index < hosts.length - 1) { %><% } %><% }) %>]}.
 
 %%
 %% route_subdomains: Delegate subdomains to other XMPP servers.
@@ -606,11 +606,9 @@
 
 %%%
 %% Included vhosts config file
-
-{include_config_file, "./includes/org.cfg"}.
-
-{include_config_file, "./includes/org2.cfg"}.
-
+<% configs.forEach(function(path, index) { %>
+{include_config_file, "<%= path %>"}.
+<% }); %>
 
 %%% Local Variables:
 %%% mode: erlang

@@ -16,11 +16,11 @@ describe('Ejabberdctl', function() {
     // .
     var test_admin = helpers.randomUsername();
 
-    it('should failed if ejabberdclt command is not found', function(done) {
-      var promise = control.status({ctl: 'no_ejabberdctl'});
+    // it('should failed if ejabberdclt command is not found', function(done) {
+    //   var promise = control.status({ctl: 'no_ejabberdctl'});
 
-      promise.then(f, function(reason) { setTimeout(done, 0); });
-    });
+    //   promise.then(f, function(reason) { setTimeout(done, 0); });
+    // });
 
     it('should success if ejabberdclt command is found', function(done) {
       var promise = control.status(ejabberd);
