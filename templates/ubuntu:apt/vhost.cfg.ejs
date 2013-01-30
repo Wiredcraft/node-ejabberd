@@ -1,13 +1,13 @@
 {host_config, "<%= host %>" ,[
   {acl, admin, {user, "<%= admin %>", "<%= host %>"}},
-  {access, muc_admin, [{allow, admin}]},
+  {access, muc_admin, [{allow, admin}, {deny, all}]},
   {{add, modules}, [
     {mod_muc, [
     %%{host, "conference.@HOST@"},
       {access, all},
-      {access_create, muc_admin},
-      {access_persistent, all},
       {access_admin, muc_admin},
+      {access_create, muc_admin},
+      {access_persistent, all}
     ]}
   ]}
 ]}.
