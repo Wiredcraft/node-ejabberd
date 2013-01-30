@@ -1,4 +1,13 @@
 {host_config, "<%= host %>" ,[
+  {acl, admin, {user, "<%= admin %>", "<%= host %>"}},
+  {access, muc_admin, [{allow, admin}]},
+  {{add, mudules}, [
+    {mod_muc, [
+      {access, all},
+      {access_admin, muc_admin},
+      {access_create, muc_admin}
+    ]}
+  ]}
 %%                            {auth_method,   ldap},
 %%                           ,{ldap_servers,  ["localhost", "otherhost"]},
 %%                           ,{ldap_uids,     [{"uid"}]},

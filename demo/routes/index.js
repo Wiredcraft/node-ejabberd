@@ -27,7 +27,7 @@ exports.create = function(req, res, next) {
   var org = req.body.org;
   var host = org + '.' + appHost;
 
-  var config = {host: host};
+  var config = {host: host, admin: 'bot'};
 
   e.addVhost(host, config).then(function() {
     res.redirect('/admin/' + host);
