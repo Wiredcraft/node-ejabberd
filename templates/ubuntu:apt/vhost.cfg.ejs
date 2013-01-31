@@ -1,6 +1,117 @@
+%%%%
+%%  Module mod_muc options:
+%%
+%%  {host, HostName}
+%%  This option defines the Jabber ID of the service. If the host option is not specified, the Jabber ID will be the hostname of the virtual host with the prefix ‘conference.’. The keyword "@HOST@" is replaced at start time with the real virtual host name.
+%%
+%%  {access, AccessName}
+%%  You can specify who is allowed to use the Multi-User Chat service. By default everyone is allowed to use it.
+%%
+%%  {access_create, AccessName}
+%%  To configure who is allowed to create new rooms at the Multi-User Chat service, this option can be used. By default any account in the local ejabberd server is allowed to create rooms.
+%%
+%%  {access_persistent, AccessName}
+%%  To configure who is allowed to modify the ’persistent’ room option. By default any account in the local ejabberd server is allowed to modify that option.
+%%
+%%  {access_admin, AccessName}
+%%  This option specifies who is allowed to administrate the Multi-User Chat service. The default value is none, which means that only the room creator can administer his room. The administrators can send a normal message to the service JID, and it will be shown in all active rooms as a service message. The administrators can send a groupchat message to the JID of an active room, and the message will be shown in the room as a service message.
+%%
+%%  {history_size, Size}
+%%  A small history of the current discussion is sent to users when they enter the room. With this option you can define the number of history messages to keep and send to users joining the room. The value is an integer. Setting the value to 0 disables the history feature and, as a result, nothing is kept in memory. The default value is 20. This value is global and thus affects all rooms on the service.
+%%
+%%  {max_users, Number}
+%%  This option defines at the service level, the maximum number of users allowed per room. It can be lowered in each room configuration but cannot be increased in individual room configuration. The default value is 200.
+%%
+%%  {max_users_admin_threshold, Number}
+%%  This option defines the number of service admins or room owners allowed to enter the room when the maximum number of allowed occupants was reached. The default limit is 5.
+%%
+%%  {max_user_conferences, Number}
+%%  This option defines the maximum number of rooms that any given user can join. The default value is 10. This option is used to prevent possible abuses. Note that this is a soft limit: some users can sometimes join more conferences in cluster configurations.
+%%
+%%  {max_room_id, Number}
+%%  This option defines the maximum number of characters that Room ID can have when creating a new room. The default value is to not limit: infinite.
+%%
+%%  {max_room_name, Number}
+%%  This option defines the maximum number of characters that Room Name can have when configuring the room. The default value is to not limit: infinite.
+%%
+%%  {max_room_desc, Number}
+%%  This option defines the maximum number of characters that Room Description can have when configuring the room. The default value is to not limit: infinite.
+%%
+%%  {min_message_interval, Number}
+%%  This option defines the minimum interval between two messages send by an occupant in seconds. This option is global and valid for all rooms. A decimal value can be used. When this option is not defined, message rate is not limited. This feature can be used to protect a MUC service from occupant abuses and limit number of messages that will be broadcasted by the service. A good value for this minimum message interval is 0.4 second. If an occupant tries to send messages faster, an error is send back explaining that the message has been discarded and describing the reason why the message is not acceptable.
+%%
+%%  {min_presence_interval, Number}
+%%  This option defines the minimum of time between presence changes coming from a given occupant in seconds. This option is global and valid for all rooms. A decimal value can be used. When this option is not defined, no restriction is applied. This option can be used to protect a MUC service for occupants abuses. If an occupant tries to change its presence more often than the specified interval, the presence is cached by ejabberd and only the last presence is broadcasted to all occupants in the room after expiration of the interval delay. Intermediate presence packets are silently discarded. A good value for this option is 4 seconds.
+%%
+%%  {default_room_options, [ {OptionName, OptionValue}, ...]}
+%%  This module option allows to define the desired default room options. Note that the creator of a room can modify the options of his room at any time using an XMPP client with MUC capability. The available room options and the default values are:
+%%    {allow_change_subj, true|false}
+%%    Allow occupants to change the subject.
+%%
+%%    {allow_private_messages, true|false}
+%%    Occupants can send private messages to other occupants.
+%%
+%%    {allow_private_messages_from_visitors, anyone|moderators|nobody}
+%%    Visitors can send private messages to other occupants.
+%%
+%%    {allow_query_users, true|false}
+%%    Occupants can send IQ queries to other occupants.
+%%
+%%    {allow_user_invites, false|true}
+%%    Allow occupants to send invitations.
+%%
+%%    {allow_visitor_nickchange, true|false}
+%%    Allow visitors to change nickname.
+%%
+%%    {allow_visitor_status, true|false}
+%%    Allow visitors to send status text in presence updates. If disallowed, the status text is stripped before broadcasting the presence update to all the room occupants.
+%%
+%%    {anonymous, true|false}
+%%    The room is anonymous: occupants don’t see the real JIDs of other occupants. Note that the room moderators can always see the real JIDs of the occupants.
+%%
+%%    {captcha_protected, false}
+%%    When a user tries to join a room where he has no affiliation (not owner, admin or member), the room requires him to fill a CAPTCHA challenge (see section 3.1.8) in order to accept her join in the room.
+%%
+%%    {logging, false|true}
+%%    The public messages are logged using mod_muc_log.
+%%
+%%    {max_users, 200}
+%%    Maximum number of occupants in the room.
+%%
+%%    {members_by_default, true|false}
+%%    The occupants that enter the room are participants by default, so they have ’voice’.
+%%
+%%    {members_only, false|true}
+%%    Only members of the room can enter.
+%%
+%%    {moderated, true|false}
+%%    Only occupants with ’voice’ can send public messages.
+%%
+%%    {password, "roompass123"}
+%%    Password of the room. You may want to enable the next option too.
+%%
+%%    {password_protected, false|true}
+%%    The password is required to enter the room.
+%%
+%%    {persistent, false|true}
+%%    The room persists even if the last participant leaves.
+%%
+%%    {public, true|false}
+%%    The room is public in the list of the MUC service, so it can be discovered.
+%%
+%%    {public_list, true|false}
+%%    The list of participants is public, without requiring to enter the room.
+%%
+%%    {title, "Room Title"}
+%%    A human-readable title of the room.
+
+%%  All of those room options can be set to true or false, except password and title which are strings, and max_users that is integer.
+%%%%
+
 {host_config, "<%= host %>" ,[
   <% admins.forEach(function(admin, index) { %>
-  {acl, admin, {user, "<%= admin %>", "<%= host %>"}},<% }); %>
+  {acl, admin, {user, "<%= admin %>", "<%= host %>"}},
+  <% }); %>
   {access, muc_admin, [{allow, admin}, {deny, all}]},
   {{add, modules}, [
     {mod_muc, [
