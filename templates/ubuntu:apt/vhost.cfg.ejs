@@ -1,6 +1,7 @@
 {host_config, "<%= host %>" ,[
   <% admins.forEach(function(admin, index) { %>
-  {acl, admin, {user, "<%= admin %>", "<%= host %>"}},
+    {acl, admin, {user, "<%= admin %>", "<%= host %>"}}
+    <% if (index < admins.length - 1) { %>,<% } %>
   <% }); %>
   {access, muc_admin, [{allow, admin}, {deny, all}]},
   {{add, modules}, [
