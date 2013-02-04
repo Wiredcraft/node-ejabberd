@@ -79,8 +79,22 @@ exports.add = function(req, res) {
   var users = [{name:username1, password:password1},{name:username2, password:password2}]
 
   e.addUsers(users, host).then(
-    function() {
-    var msg = 'register ok, Now you can use your jid and password login server ';
+    function(promises) {
+    var msg, success = 0;
+
+    promises.forEach(function(promise) {
+      if (promise.isFulfilled()) {
+        ++success;
+      } else {
+        var exception = promise.valueOf().exception;
+      }
+    });
+
+    if (success === promises.length) {
+      msg = 'register ok, Now you can use your jid and password login server ';
+    } else {
+      msg = 'some failed';
+    }
 
     res.send(msg);
   },
