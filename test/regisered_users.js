@@ -11,6 +11,7 @@ child.stdout.on('data', function(data) {
   console.log(data);
 
   var users = data.toString().split(' ');
+  console.log('Length of data is $d', users.length);
   console.log('stdout: ', users.toString());
 });
 
