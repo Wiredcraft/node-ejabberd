@@ -8,7 +8,9 @@ child.stderr.on('data', function(data) {
 });
 
 child.stdout.on('data', function(data) {
-  var users = data.split(' ');
+  console.log(data);
+
+  var users = data.toString().split(' ');
   console.log('stdout: ', users.toString());
 });
 
