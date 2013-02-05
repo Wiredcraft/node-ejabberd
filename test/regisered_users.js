@@ -10,7 +10,7 @@ child.stderr.on('data', function(data) {
 child.stdout.on('data', function(data) {
   console.log(data);
 
-  var users = data.toString().split(' ');
+  var users = data.toString().split('\n');
   console.log('Length of data is $d', users.length);
   console.log('stdout: ', users.toString());
 });
