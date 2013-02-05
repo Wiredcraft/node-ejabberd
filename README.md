@@ -103,7 +103,7 @@ var e = new Ejabberd('ubuntu:apt', {
     checkerInterval : 1000
 });
 
-// Lvh redirect to 127.0.0.1
+// The address of virtual host
 var host = 'example.lvh.me';
 var config = {host: host};
 
