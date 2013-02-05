@@ -64,3 +64,10 @@
   1, Spwan child process when restrt.
 
   2, disable stop time.
+
+
+* 2013/02/05: **0.2.4**
+
+  1, add Pause time in every control command
+
+  2, Determind allResolved fullfil/reject in internal function,
