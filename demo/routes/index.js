@@ -27,15 +27,13 @@ exports.create = function(req, res, next) {
   var org = req.body.org;
   var host = org + '.' + appHost;
 
-  var config = {host: host, admins:['bot', 'kuno']};
+  var config = {host: host, admins:['bot']};
 
-  e.addVhost(host, config).then(function() {
-    res.redirect('/admin/' + host);
-  },
-    function(reason) {
-    next(new Error.HTTP(reason, 500));
+  e.addVhost(host, config).then(
+    function() {
+      res.redirect('/admin/' + host);
     }).fail(function(reason) {
-    next(new Error.HTTP(reason, 500));
+      next(new Error.HTTP(reason, 500));
   });
 };
 
