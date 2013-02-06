@@ -4,7 +4,7 @@
  */
 
 var Ejabberd = require('../..');
-var e = new Ejabberd(null, {debug:true});
+var e = new Ejabberd(null, {debug:true, sudo:true});
 
 exports.index = function(req, res){
   res.render('index', { title: 'Team Chat' });
