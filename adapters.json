@@ -4,8 +4,7 @@
     "dbDir"   : "/usr/local/var/lib/ejabberd",
     "script"  : null,
     "ctl"     : "/usr/local/sbin/ejabberdctl",
-    "daemon"  : "/etc/local/usr/sbin/ejabberd",
-    "restart" : "/usr/local/usr/sbin/ejabberdctl restart"
+    "daemon"  : "/etc/local/usr/sbin/ejabberd"
   },
   "ubuntu:apt": {
     "cfgDir"  : "/etc/ejabberd/",
@@ -13,7 +12,6 @@
     "pidFile" : "/var/run/ejabberd/ejabberd.pid",
     "ctl"     : "/usr/sbin/ejabberdctl",
     "daemon"  : "/usr/sbin/ejabberd",
-    "script"  : "/etc/init.d/ejabberd",
-    "restart" : "/etc/init.d/ejabberd restart"
+    "script"  : "/etc/init.d/ejabberd"
   }
 }
