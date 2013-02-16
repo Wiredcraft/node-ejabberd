@@ -7,9 +7,15 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    
+
     <form method="post" action="/create">
       <h5>Create a new Organization</h5>
+      <input type="text" name="org" placeholder="org" />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <form method="post" action="/update">
+      <h5>Update Organizations</h5>
       <input type="text" name="org" placeholder="org" />
       <input type="submit" value="Submit" />
     </form>

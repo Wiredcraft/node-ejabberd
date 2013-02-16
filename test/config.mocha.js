@@ -56,7 +56,7 @@ describe('Ejabberdctl', function() {
       fakeEjabberd.db['hosts'] = ['org1.example.com', 'org2.example.com'];
       fakeEjabberd.db['configs'] = ['./includes/org.cfg', './includes/org2.cfg'];
 
-      var promise = config.updateConfig(fakeEjabberd);
+      var promise = config.updateConfig(fakeEjabberd, fakeEjabberd.db);
 
       promise.then(function() { setTimeout(done, 0); });
     });

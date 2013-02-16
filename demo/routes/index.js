@@ -21,6 +21,20 @@ exports.admin = function(req,res) {
             );
 };
 
+exports.update = function(req, res, next) {
+  var appHost = 'ejabberd.local';
+  var org = req.body.org;
+  var host = org + '.' + appHost;
+
+  var config = {host: host, admins:['bot']};
+
+  e.updateVhosts([host], host, config).then(
+    function() {
+      res.redirect('/admin/' + host);
+    }).fail(function(reason) {
+      next(new Error.HTTP(reason, 500));
+  });
+};
 
 exports.create = function(req, res, next) {
   var appHost = 'ejabberd.local';
@@ -84,7 +98,7 @@ exports.add = function(req, res) {
     res.send('register failed');
   });
 };
-   
+
 exports.unregister = function(req, res) {
   var host = req.params.host;
   var username = req.body.username;
@@ -145,4 +159,4 @@ exports.modify = function(req, res) {
   function() {
     res.send('change password failed');
   });
-};  
+};

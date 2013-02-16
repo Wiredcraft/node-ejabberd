@@ -31,6 +31,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.post('/create', routes.create);
+app.post('/update', routes.update);
 app.post('/remove/:host', routes.remove)
 app.get('/admin/:host', routes.admin);
 app.post('/add/:host', routes.add);

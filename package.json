@@ -35,7 +35,6 @@
     "q": "~0.8.11",
     "winston": "~0.6.2",
     "fs-extra": "~0.3.2"
-
   },
   "devDependencies": {
     "mocha": "~1.7.4",

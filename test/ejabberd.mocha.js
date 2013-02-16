@@ -26,6 +26,18 @@ describe('Ejabberd', function() {
       setTimeout(done, 0);
     });
 
+    it('should has a updateVhosts method', function(done) {
+      instance.updateVhosts.should.be.a('function');
+
+      setTimeout(done, 0);
+    });
+
+    it('should fail it updateVhosts missing arguments', function(done) {
+      var promise = instance.updateVhosts('blah');
+
+      promise.then(f).fail(function(error) { console.log(error); setTimeout(done, 0); });
+    });
+
     it('should has a addVhost method', function(done) {
       instance.addVhost.should.be.a('function');
 
