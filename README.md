@@ -26,8 +26,7 @@ An adaper is simpely a bunch of info about the ejabberd setups on an OS that def
     "pidFile" : "/var/run/ejabberd/ejabberd.pid",
     "ctl"     : "/usr/sbin/ejabberdctl",
     "daemon"  : "/usr/sbin/ejabberd",
-    "script"  : "/etc/init.d/ejabberd",
-    "restart" : "/etc/init.d/ejabberd restart"
+    "script"  : "/etc/init.d/ejabberd"
   }
   ...
 ```
