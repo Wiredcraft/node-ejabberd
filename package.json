@@ -1,7 +1,7 @@
 {
   "name": "ejabberd",
   "description": "node bridge to ejabberd",
-  "version": "0.2.0-dev",
+  "version": "0.3.0-dev",
   "homepage": "https://github.com/Wiredcraft/node-ejabberd",
   "author": {
     "name": "wiredcraft",

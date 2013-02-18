@@ -21,6 +21,20 @@ exports.admin = function(req,res) {
             );
 };
 
+exports.update = function(req, res, next) {
+  var appHost = 'ejabberd.local';
+  var org = req.body.org;
+  var host = org + '.' + appHost;
+
+  var config = {host: host, admins:['bot']};
+
+  e.updateVhosts([host], host, config).then(
+    function() {
+      res.redirect('/admin/' + host);
+    }).fail(function(reason) {
+      next(new Error.HTTP(reason, 500));
+  });
+};
 
 exports.create = function(req, res, next) {
   var appHost = 'ejabberd.local';
@@ -29,7 +43,7 @@ exports.create = function(req, res, next) {
 
   var config = {host: host, admins:['bot']};
 
-  e.addVhost(host, config).then(
+  e.addVhost(['org1.ejabberd.local', 'org2.ejabberd.local'], host, config).then(
     function() {
       res.redirect('/admin/' + host);
     }).fail(function(reason) {
@@ -40,7 +54,7 @@ exports.create = function(req, res, next) {
 exports.remove = function(req, res) {
   var host = req.params.host;
 
-  e.removeVhost(host).then(
+  e.removeVhost(['org1.ejabberd.local', 'org2.ejabberd.local', 'org3.ejabberd.local'], host).then(
     function() {
     var msg = 'Host ' + host + ' has bee removed';
 
@@ -84,7 +98,7 @@ exports.add = function(req, res) {
     res.send('register failed');
   });
 };
-   
+
 exports.unregister = function(req, res) {
   var host = req.params.host;
   var username = req.body.username;
@@ -100,7 +114,7 @@ exports.unregister = function(req, res) {
   });
 };
 
-exports.remove = function(req, res) {
+exports.removeUsers = function(req, res) {
   var host = req.params.host;
   var username1 = req.body.username1;
   var username2 = req.body.username2;
@@ -145,4 +159,4 @@ exports.modify = function(req, res) {
   function() {
     res.send('change password failed');
   });
-};  
+};
