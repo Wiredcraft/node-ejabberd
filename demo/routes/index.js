@@ -43,7 +43,7 @@ exports.create = function(req, res, next) {
 
   var config = {host: host, admins:['bot']};
 
-  e.addVhost(host, config).then(
+  e.addVhost(['org1.ejabberd.local', 'org2.ejabberd.local'], host, config).then(
     function() {
       res.redirect('/admin/' + host);
     }).fail(function(reason) {
@@ -54,7 +54,7 @@ exports.create = function(req, res, next) {
 exports.remove = function(req, res) {
   var host = req.params.host;
 
-  e.removeVhost(host).then(
+  e.removeVhost(['org1.ejabberd.local', 'org2.Ejabberd.local'], host).then(
     function() {
     var msg = 'Host ' + host + ' has bee removed';
 
