@@ -54,7 +54,7 @@ exports.create = function(req, res, next) {
 exports.remove = function(req, res) {
   var host = req.params.host;
 
-  e.removeVhost(['org1.ejabberd.local', 'org2.ejabberd.local'], host).then(
+  e.removeVhost(['org1.ejabberd.local', 'org2.ejabberd.local', 'org3.ejabberd.local'], host).then(
     function() {
     var msg = 'Host ' + host + ' has bee removed';
 
