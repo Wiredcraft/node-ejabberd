@@ -114,7 +114,7 @@ exports.unregister = function(req, res) {
   });
 };
 
-exports.remove = function(req, res) {
+exports.removeUsers = function(req, res) {
   var host = req.params.host;
   var username1 = req.body.username1;
   var username2 = req.body.username2;
