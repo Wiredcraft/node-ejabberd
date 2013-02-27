@@ -1,4 +1,7 @@
-{hosts, [<% hosts.forEach(function(host, index){ %>"<%= host %>"<% if (index < hosts.length - 1) { %>,<% } %><% }) %>]}.
+%% Hostname
+{hosts, ["localhost", "127.0.0.1"<% hosts.forEach(function(host, index){ %>, "<%= host %>"<% if (index < hosts.length - 1) { %><% } %><% }) %>]}.
+
+%% Included vhosts config file
 <% configs.forEach(function(path, index) { %>
 {include_config_file, "<%= path %>"}.
 <% }); %>
