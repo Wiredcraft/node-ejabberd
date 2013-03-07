@@ -26,17 +26,17 @@
   <input type="text" name="username1" placeholder="username1" />
   <input type="text" name="password1" placeholder="password1" />
   <input type="text" name="username2" placeholder="username2" />
-  <input type="text" name="password2" placeholder="password2" />  
+  <input type="text" name="password2" placeholder="password2" />
   <input type="submit" value="Submit" />
 </form>
-   
+
 <form method="post" action="/unregister/<%= host %>">
   <h5>Unregister user</h5>
   <input type="text" name="username" placeholder="username" />
   <input type="submit" value="Submit" />
 </form>
 
- <form method="post" action="/remove/<%= host %>">
+<form method="post" action="/remove/<%= host %>">
   <h5>Remove users</h5>
   <input type="text" name="username1" placeholder="username1" />
   <input type="text" name="username2" placeholder="username2" />
@@ -55,6 +55,16 @@
   <input type="text" name="username" placeholder="username" />
   <input type="text" name="newPass" placeholder="newPass" />
   <input type="submit" value="Submit" />
-</form>  
+</form>
+
+<form method="post" action="/addRoster">
+  <h5>Create a new roster group</h5>
+  <input type="text" name="group" placeholder="group" />
+  <input type="text" name="host" placeholder="host" />
+  <input type="text" name="name" placeholder="name" />
+  <input type="text" name="description" placeholder="description" />
+  <input type="text" name="display" placeholder="display" />
+  <input type="submit" value="Submit" />
+</form>
 </body>
 </html>
