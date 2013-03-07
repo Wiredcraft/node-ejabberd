@@ -30,10 +30,16 @@ module.exports = function(grunt) {
       globals: {
         exports: true
       }
-    }
+    },
+    jsvalidate: {
+      files: ['*.js', 'lib/**/*.js', 'test/**/*.js']
+    },
   });
 
+  // .
+  grunt.loadNpmTasks('grunt-jsvalidate');
+
   // Default task.
-  grunt.registerTask('default', 'lint test');
+  grunt.registerTask('default', 'jsvalidate');
 
 };
