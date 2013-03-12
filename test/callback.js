@@ -11,6 +11,6 @@ for (var i = 0; i < 10; ++i) {
   });
 }
 
-for (Date.now() - start < 1000 * 10) {}
+while (Date.now() - start < 1000 * 10) {}
 
 console.log('Success time is $s', success);
